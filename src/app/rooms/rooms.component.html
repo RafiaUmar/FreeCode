@@ -1,0 +1,22 @@
+<div class="container">
+  <div [hidden]="hiddenrooms">This is {{ title }}</div>
+   <app-header></app-header>
+  <div [innerText]="numberOfRooms"></div>
+  <button class="btn btn-success" (click)="onClick()">Hide</button>
+
+  <div *ngIf="hiddenrooms">
+    <H3>Rooms List</H3>
+    <app-room-list [roomsInput]="roomsStatus" (roomSelected)="roomChosen($event)"></app-room-list>
+
+    <div [ngSwitch]="role">
+      <div *ngSwitchCase="'Admins'">
+        <p>Welcome to admin role</p>
+      </div>
+      <div *ngSwitchCase="'Rafia'">
+        <p>Rafia here</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
