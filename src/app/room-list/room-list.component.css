@@ -1,0 +1,13 @@
+.container{
+    margin-top: 20px;
+}
+
+.even {
+    background-color: bisque;
+    color: crimson;
+}
+
+.odd{
+    background-color: gainsboro;
+    color: rgb(139, 64, 10);
+}

@@ -1,0 +1,87 @@
+<div class="messages" *ngIf="roomData.roomNumber == 0">
+  <p>You have successfully filled form</p>
+</div>
+
+<form #roomsForm="ngForm" (ngSubmit)="onAdd(roomsForm)">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      name="roomtype"
+      placeholder="Room Number"
+      [(ngModel)]="roomData.roomNumber"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      name="roomtype"
+      placeholder="Room Type"
+      [(ngModel)]="roomData.roomType"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      name="amenities"
+      placeholder="Amenities"
+      [(ngModel)]="roomData.amentias"
+      required
+    />
+  </div>
+  {{roomprice.valid}}
+  {{roomprice.errors | json}}
+
+  <div class="form-group">
+    <input
+    required
+    #roomprice="ngModel"
+    type="number"
+    class="form-control"
+    name="price"
+    placeholder="Room Price"
+    [(ngModel)]="roomData.price"
+  />
+    <!-- <div class="alert alert-danger" *ngIf="roomprice.errors?.['min']">
+      Price should be greater than 5
+    </div> -->
+  
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      name="photos"
+      placeholder="Photos (Provide link)"
+      [(ngModel)]="roomData.photos"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="datetime"
+      class="form-control"
+      name="checkintime"
+      placeholder="Check in Time"
+      [(ngModel)]="roomData.checkinTime"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="datetime"
+      class="form-control"
+      name="checkouttime"
+      placeholder="Check out Time"
+      [(ngModel)]="roomData.checkoutTime"
+      required
+    />
+  </div>
+  <button class="btn btn-success" type="submit" [disabled]="roomsForm.invalid">
+    Submit
+  </button>
+</form>

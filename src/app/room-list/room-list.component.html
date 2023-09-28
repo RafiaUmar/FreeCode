@@ -1,0 +1,38 @@
+<div>
+  <table>
+    <tr>
+      <th>Index</th>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Amentias</th>
+      <th>Room Price</th>
+      <th>Room Photos</th>
+      <th>Check In Time</th>
+      <th>Check out Time</th>
+      <th>Select Room</th>
+    </tr>
+    <tr
+      [ngClass]="e ? 'even' : 'odd'"
+      *ngFor="let list of roomsInput; let e = even; let o = odd; let i = index"
+    >
+      <td>{{ i }}</td>
+      <td>{{ e ? "Even" : "Odd" }}</td>
+      <td>{{ list.roomNumber }}</td>
+      <td>{{ list.roomType }}</td>
+      <td>{{ list.amentias | uppercase }}</td>
+      <td>{{ list.price }}</td>
+      <td>{{ list.photos }}</td>
+      <td>{{ list.checkinTime }}</td>
+      <td>{{ list.checkoutTime }}</td>
+      <td>
+        <button
+          class="btn btn-success"
+          (click)="select(list)"
+          [routerLink]="['/rooms', list.roomNumber]"
+        >
+          Select
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
